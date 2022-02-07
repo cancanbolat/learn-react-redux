@@ -1,6 +1,7 @@
 import Home from './views/Home'
 import Profile from './views/Profile'
 import About from './views/About'
+import Login from './views/Login'
 
 export const routes = [
     {
@@ -20,5 +21,11 @@ export const routes = [
         exact: true,
         component: Profile,
         auth: true
+    },
+    {
+        path: '/login',
+        exact: true,
+        component: Login,
+        auth: false
     },
 ]

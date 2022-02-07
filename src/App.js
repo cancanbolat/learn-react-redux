@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import Counter from "./components/Counter";
 import CounterActions from "./components/CounterActions";
 import Footer from "./components/Footer";
@@ -11,10 +11,15 @@ import {
   Redirect
 } from "react-router-dom";
 
-function App() {
+const mapStateToProps = state => ({
+  dark: state.site.dark,
+  user: state.auth.user
+})
 
-  const { dark } = useSelector(state => state.site)
-  const { user } = useSelector(state => state.auth)
+function App({ dark, user }) {
+
+  //const { dark } = useSelector(state => state.site)
+  //const { user } = useSelector(state => state.auth)
 
   return (
     <Router>
@@ -39,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(mapStateToProps)(App);

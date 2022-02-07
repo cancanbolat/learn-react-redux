@@ -21,11 +21,11 @@ function App() {
         <Header />
         {/* <Counter /> <CounterActions /> */}
         <Switch>
-          {
-            routes.map(route => (
-              <route.component />
-            ))
-          }
+          {routes.map(route => (
+            <Route exact={route.exact} path={route.path}>
+                <route.component />
+            </Route>
+          ))}
         </Switch>
         <Footer />
       </div>
